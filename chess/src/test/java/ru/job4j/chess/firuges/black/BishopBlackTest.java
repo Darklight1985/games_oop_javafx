@@ -9,7 +9,6 @@ import ru.job4j.chess.firuges.Figure;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
 public class BishopBlackTest {
 
     @Test
@@ -34,6 +33,7 @@ public class BishopBlackTest {
         Cell[] expected = bishopBlack.way(Cell.G5);
         Assert.assertArrayEquals(expected, traekt);
     }
+
     @Test
     public void wayRightSecond() {
         Figure bishopBlack = new BishopBlack(Cell.C1);

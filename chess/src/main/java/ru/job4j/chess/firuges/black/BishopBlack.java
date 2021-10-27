@@ -18,16 +18,18 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell dest) {
-        if (!isDiagonal(position, dest))
-        throw new ImpossibleMoveException(
-                String.format("Could not way by diagonal from %s to %s", position, dest)
-        );
+        if (!isDiagonal(position, dest)) {
+            throw new ImpossibleMoveException(
+                    String.format("Could not way by diagonal from %s to %s", position, dest)
+            );
+        }
         int size = Math.abs(position.getY() - dest.getY());
         Cell[] steps = new Cell[size];
         int deltaX = size / (dest.getX() - position.getX());
         int deltaY = size / (dest.getY() - position.getY());
         for (int index = 0; index < size; index++) {
-            steps[index] = Cell.findBy(position.getX() + deltaX * (index + 1), position.getY() + deltaY * (index + 1));
+            steps[index] = Cell.findBy(position.getX() + deltaX * (index + 1),
+                    position.getY() + deltaY * (index + 1));
         }
         return steps;
     }
@@ -49,7 +51,6 @@ public class BishopBlack implements Figure {
     public static boolean coordBoard(int num) {
         return num > -1 && num < 8;
     }
-
 
     @Override
     public Figure copy(Cell dest) {
