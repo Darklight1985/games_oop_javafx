@@ -5,6 +5,7 @@ import ru.job4j.chess.firuges.Figure;
 import java.util.Arrays;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public final class Logic {
     private final Figure[] figures = new Figure[32];
@@ -24,9 +25,9 @@ public final class Logic {
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (Figure figure: figures) {
-            if (!isNull(figure)) {
+            if (nonNull(figure)) {
                 for (Cell cell : steps) {
-                    if (figure.position() == cell) {
+                    if (figure.position().equals(cell)) {
                         throw new OccupiedCellException(
                         );
                     }
